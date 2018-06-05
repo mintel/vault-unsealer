@@ -9,7 +9,8 @@ RUN set -ex && apk add --update ca-certificates curl
 RUN set -ex && curl -L -o vault-unsealer https://github.com/jetstack/vault-unsealer/releases/download/${vault_unsealer_version}/vault-unsealer_${vault_unsealer_version}_linux_amd64 \
   && echo "$vault_unsealer_sum  vault-unsealer" | sha256sum -c - \
   && mkdir -p /usr/local/bin/ \
-  && mv vault-unsealer /usr/local/bin
+  && mv vault-unsealer /usr/local/bin \
+  && chmod a+x /usr/local/bin/vault-unsealer
 
 USER 65534
 
