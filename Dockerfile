@@ -11,4 +11,6 @@ RUN set -ex && curl -L -o vault-unsealer https://github.com/jetstack/vault-unsea
   && mkdir -p /usr/local/bin/ \
   && mv vault-unsealer /usr/local/bin
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/vault-unsealer"]
